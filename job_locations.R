@@ -78,7 +78,7 @@ plot.job.locations <- function(cities, country, labels = FALSE){
   newmap <- get_map(location = country, zoom = 6, maptype = 'hybrid' )
   
     if(labels){
-      mapPoints <- ggmap(newmap) +
+      mapPoints <- ggmap(newmap) + 
         geom_point(aes(x = Longitude, y = Latitude, size = Freq),
                    data = cities, alpha = .5, colour = 'green1') +
         scale_size() +
@@ -103,8 +103,11 @@ plot.job.locations <- function(cities, country, labels = FALSE){
                             'podkarpackie', 'podlaskie', 'pomorskie', 'śląskie', 
                             'świętokrzyskie', 'warmińsko-mazurskie', 'wielkopolskie', 
                             'zachodniopomorskie', 'lubuskie')
-       
   dictionary_countries <- c('Eastern Switzerland ', 'Szwajcaria')
+  map_dictionary       <- c('Gdynia', 'Gdańsk', 'Olsztyn', 'Białystok',
+                          'Szczecin', 'Bydgoszcz', 'Poznań','Łódź', 
+                          'Warszawa', 'Lublin', 'Kielce', 'Rzeszów', 
+                          'Kraków', 'Katowice', 'Wrocław', 'Warsaw')
 
   job.locations(URL = 'http://www.pracuj.pl/praca/Data%20Scientist;kw',
                 number_of_pages = 4) %>% 
