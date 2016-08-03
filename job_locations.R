@@ -83,8 +83,8 @@ plot.job.locations <- function(cities, country, labels = FALSE){
                    data = cities, alpha = .5, colour = 'green1') +
         scale_size() +
         geom_text(data = cities[-diff_Idx,], aes(label = cities[-diff_Idx, 1],
-                                                 x = cities[-diff_Idx, 3], 
-                                                 y = cities[-diff_Idx, 4]),
+                                                     x = cities[-diff_Idx, 3], 
+                                                     y = cities[-diff_Idx, 4]),
                   colour = 'white',
                   fontface = 'bold')
   } else {
@@ -98,24 +98,17 @@ plot.job.locations <- function(cities, country, labels = FALSE){
 
   #### Main ####
 
-  dictionary <- c('dolnośląskie', 'kujawsko-pomorskie', 'Kujawsko-Pomorskie', 'lubelskie',
-                  'łódzkie','Łódzkie', 'małopolskie', 'mazowieckie', 'opolskie',
-                  'podkarpackie', 'podlaskie', 'pomorskie', 'śląskie', 
-                  'świętokrzyskie', 'warmińsko-mazurskie', 'wielkopolskie', 
-                  'zachodniopomorskie', 'lubuskie')
-
-  map_dictionary <- c('Gdynia', 'Gdańsk', 'Olsztyn', 'Białystok', 'Szczecin', 'Bydgoszcz', 'Poznań',
-                      'Łódź', 'Warszawa', 'Lublin', 'Kielce', 'Rzeszów', 'Kraków', 'Katowice', 'Wrocław', 
-                      'Warsaw')
-  
+            dictionary <- c('dolnośląskie', 'kujawsko-pomorskie', 'Kujawsko-Pomorskie', 'lubelskie',
+                            'łódzkie','Łódzkie', 'małopolskie', 'mazowieckie', 'opolskie',
+                            'podkarpackie', 'podlaskie', 'pomorskie', 'śląskie', 
+                            'świętokrzyskie', 'warmińsko-mazurskie', 'wielkopolskie', 
+                            'zachodniopomorskie', 'lubuskie')
+       
   dictionary_countries <- c('Eastern Switzerland ', 'Szwajcaria')
 
-
-
-  cities <- job.locations(URL = 'http://www.pracuj.pl/praca/Data%20Scientist;kw',
-                          number_of_pages = 4)
-
-  plot.job.locations(cities = cities, country = 'Poland', labels = FALSE)
+  job.locations(URL = 'http://www.pracuj.pl/praca/Data%20Scientist;kw',
+                number_of_pages = 4) %>% 
+    plot.job.locations(cities = d, country = 'Poland')
  
 
 
