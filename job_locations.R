@@ -72,8 +72,6 @@ job.locations <- function(URL, number_of_pages){
   return(cities)
 }
 
-
-
 plot.job.locations <- function(cities, country, labels = FALSE){
   
   diff_Idx <- which(cities$Cities %in% map_dictionary)
@@ -97,8 +95,6 @@ plot.job.locations <- function(cities, country, labels = FALSE){
   }
   return(mapPoints)
 }
-
-
 
   #### Main ####
 
