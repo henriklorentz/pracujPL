@@ -4,17 +4,17 @@ if('ggmap' %in% installed.packages()){
   install.packages('ggmap')}
 
 if('rvest' %in% installed.packages()){
-  require(ggmap)
+  require(rvest)
 } else {
   install.packages('rvest')}
 
 if('foreach' %in% installed.packages()){
-  require(ggmap)
+  require(foreach)
 } else {
   install.packages('foreach')}
 
 if('ggplot2' %in% installed.packages()){
-  require(ggmap)
+  require(ggplot2)
 } else {
   install.packages('ggplot2')}
 
@@ -111,11 +111,14 @@ plot.job.locations <- function(cities, country, labels = FALSE){
 
   job.locations(URL = 'http://www.pracuj.pl/praca/Data%20Scientist;kw',
                 number_of_pages = 4) %>% 
-    plot.job.locations(cities = d, country = 'Poland')
+    plot.job.locations(country = 'Poland')
  
 
 
-
+  job.locations(URL = 'http://www.pracuj.pl/praca/Badania%20i%20rozw%C3%B3j;kw', 
+                number_of_pages = 6) %>%
+    plot.job.locations(country = 'Poland')
+  
 
 
 
